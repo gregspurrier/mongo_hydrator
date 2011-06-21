@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/mongo_hydrator.rb",
+    "mongo_hydrator.gemspec",
     "spec/mongo_hydrator_spec.rb",
     "spec/spec_helper.rb"
   ]
