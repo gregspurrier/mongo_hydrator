@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "mongo_hydrator"
   gem.homepage = "http://github.com/gregspurrier/mongo_hydrator"
   gem.license = "MIT"
-  gem.summary = %Q{MongoHydrator makes expanding MongoDB IDs into embedded subdocuments quick and easy.}
+  gem.summary = %Q{MongoHydrator makes expanding embedded MongoDB IDs into embedded subdocuments quick and easy.}
   gem.description = %Q{MongoHydrator takes a document, represented as a Ruby Hash, and efficiently updates it so that embedded references to MongoDB documents are replaced with their corresponding subdocuments.}
   gem.email = "greg.spurrier@gmail.com"
   gem.authors = ["Greg Spurrier"]
