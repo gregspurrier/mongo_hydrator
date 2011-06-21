@@ -88,13 +88,38 @@ Then only the specified fields will show up in the hydrated result.  E.g.,:
 
     hydrator.hydrate_document(status_update,
       ['user_id', 'liker_ids', 'comments.user_id'])
-    # =>
+    # => {
+    #  "_id" => 37,
+    #  "user" => { "name"=>"Obi-Wan Kenobi" },
+    #  "text" => "May the Force be with you.",
+    #  "likers" => [
+    #    { "name" => "Luke Skywalker" },
+    #    { "name" => "Yoda" }
+    #  ],
+    #  "comments" => [
+    #    { "user" => { "name" => "Han Solo" },
+    #      "text" => "Thanks, but I'll stick with my blaster."
+    #    },
+    #    { "text" => "Hey, show some respect!",
+    #      "user" => { "name" => "Luke Skywalker" }
+    #    }
+    #  ]
+    # }
+
+The `:fields` option takes the same format as it does for Mongo::Collection#find.
 
 ## Hydrating Multiple Documents
 To hydrate multiple documents at once, use `hydrate_documents`. The arguments are the same as for `hydrate_document` with the exception that the first argument is an array of documents to hydrate. As with `hydrate_document` a single MongoDB query will be used to retrieve the required documents.
 
 ## Additional Notes
 MongoHydrator expects the document being hydrated to have strings for keys. This will already be the case if the document came from the Mongo driver. If, however, the document is using symbols for keys, you will need to convert the keys to strings before hydration.
+
+## Supported Rubies
+MongoHydrator has been tested with:
+
+* Ruby 1.8.7 (p334)
+* Ruby 1.9.2 (p180)
+* JRuby 1.6.2
 
 ## Copyright
 Copyright (c) 2011 Greg Spurrier. Released under the MIT license. See LICENSE.txt for further details.
